@@ -1,15 +1,25 @@
 import React from 'react'
 
 const Register = () => {
+  const handleRegister = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const name = form.name.value
+    const email = form.email.value
+    const password = form.password.value
+    const newUser = { name, email, password }
+    console.log(newUser)
+  }
+
   return (
-    <div className="mt-20">
+    <div className=" bg-[#F1EFEC] ">
       {/* <!-- component --> */}
       <div class="flex items-center justify-center ">
-        <div class="w-full max-w-md bg-white shadow-lg rounded  pt-6 pb-8 mb-4">
-          <div class="font-bold text-gray-600 text-4xl flex justify-center  py-2 mb-4">
-            Sign In
+        <div class="md:w-full mt-20 mb-20  max-w-md bg-white shadow-lg rounded  pt-6 pb-8 mb-4">
+          <div class="font-bold text-gray-600 text-2xl md:text-3xl md:text-4xl flex justify-center  py-2 mb-4">
+            Sign Up
           </div>
-          <form class=" px-12 pt-6 pb-8 mb-4">
+          <form onSubmit={handleRegister} class=" px-12 pt-6 pb-8 mb-4">
             <div class="mb-4  ">
               <label
                 class="block text-gray-700 text-sm font-normal mb-2"
@@ -60,9 +70,9 @@ const Register = () => {
             </div>
             <div class="flex items-center justify-between">
               <button
-                class="px-4 py-2 rounded text-white inline-block shadow-lg bg-blue-500 hover:bg-blue-600 focus:bg-blue-700"
+                class="px-4 py-2 rounded text-white inline-block shadow-lg bg-[#123458]"
                 type="submit">
-                Sign In
+                Sign Up
               </button>
               {/* <a
                 class="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
