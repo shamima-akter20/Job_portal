@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import AuthContext from '../../Context/AuthContext/AuthContext'
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext)
+
   const links = (
     <>
       <li className=" text-sm md:text-base">
@@ -42,17 +45,31 @@ const Navbar = () => {
               <p>
                 <img
                   className="h-6 md:h-8"
-                  src="https://i.ibb.co.com/9m3JZcNn/job-seeker-3135721.png"
+                  src="https://i.ibb.co/9m3JZcNn/job-seeker-3135721.png"
                   alt=""
-                  srcset=""
-                />{' '}
+                />
               </p>
               <p className="text-base md:text-xl font-bold">JobSearch</p>
             </div>
             <div>
-              <Link to="/register">
-                <a className="btn btn-xs md:btn-sm">Sign In</a>
-              </Link>
+              {user ? (
+                <>
+                  <div className="flex  items-center">
+                    <p>
+                      <img
+                        src="https://i.ibb.co.com/Q33J74qC/ironman.webp"
+                        alt=""
+                        className="h-10 w-8 rounded-full mr-2"
+                      />
+                    </p>
+                    <button className="btn btn-xs md:btn-sm">Sign Out</button>
+                  </div>
+                </>
+              ) : (
+                <Link to="/register">
+                  <p className="btn btn-xs md:btn-sm">Sign In</p>
+                </Link>
+              )}
             </div>
             <div className="hidden flex-none lg:block">
               <ul className="menu text-[#F1EFEC] menu-horizontal">
