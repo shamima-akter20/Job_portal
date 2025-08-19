@@ -1,4 +1,8 @@
 import React from 'react'
+// import { motion } from 'motion/react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+AOS.init()
 
 const Banner = () => {
   return (
@@ -12,7 +16,18 @@ const Banner = () => {
             />
           </div>
           <div className="flex-1">
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
+            <div
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+              className="text-5xl font-bold">
+              Latest Jobs update!
+            </div>
+            {/* <motion.h1
+              animate={{ y: -50, color: ['red'] }}
+              className="text-5xl font-bold">
+              Latest Jobs update!
+            </motion.h1> */}
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
