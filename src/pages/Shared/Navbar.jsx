@@ -11,7 +11,7 @@ const Navbar = () => {
         console.log('Sihn Out')
       })
       .catch((error) => {
-        console.log('Failed to sign out')
+        console.log(error.message)
       })
   }
 
@@ -61,30 +61,36 @@ const Navbar = () => {
               </p>
               <p className="text-base md:text-xl font-bold">JobSearch</p>
             </div>
+            {/* <div>
+              <img
+                src={user?.photoURL}
+                alt="User profile"
+                className="h-10 w-10 rounded-full mr-2"
+              />
+            </div> */}
             <div>
               {user ? (
-                <>
-                  <div className="flex  items-center">
-                    <p>
-                      <img
-                        src="https://i.ibb.co.com/Q33J74qC/ironman.webp"
-                        alt=""
-                        className="h-10 w-8 rounded-full mr-2"
-                      />
-                    </p>
-                    <button
-                      onClick={handleSignOut}
-                      className="btn btn-xs md:btn-sm">
-                      Sign Out
-                    </button>
-                  </div>
-                </>
+                <div className="flex items-center">
+                  <img
+                    src={user.photoURL}
+                    alt="User profile"
+                    className="h-10 w-10 rounded-full mr-2"
+                  />
+
+                  <h1 className="text-base-200 mr-2">{user?.displayName}</h1>
+                  <button
+                    onClick={handleSignOut}
+                    className="btn btn-xs md:btn-sm">
+                    Sign Out
+                  </button>
+                </div>
               ) : (
                 <Link to="/register">
-                  <p className="btn btn-xs md:btn-sm">Sign Up</p>
+                  <button className="btn btn-xs md:btn-sm">Sign Up</button>
                 </Link>
               )}
             </div>
+
             <div className="hidden flex-none lg:block">
               <ul className="menu text-[#F1EFEC] menu-horizontal">
                 {/* Navbar menu content here */}

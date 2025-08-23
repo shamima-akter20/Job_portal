@@ -1,33 +1,39 @@
-import React from 'react'
-// import { motion } from 'motion/react'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-AOS.init()
+import { motion } from 'framer-motion'
+import BlurText from './BlurText'
+import team1 from './../../assets/images/o3.jpg'
+import team2 from './../../assets/images/o4.jpg'
 
 const Banner = () => {
+  const handleAnimationComplete = () => {
+    console.log('Animation completed!')
+  }
   return (
     <div>
-      <div className="hero bg-base-200 min-h-96">
+      <div className="hero  min-h-96">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex-1">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-              className="max-w-sm rounded-lg shadow-2xl"
+            <motion.img
+              src={team1}
+              animate={{ y: [50, 100, 50] }}
+              transition={{ duration: 6, repeat: Infinity }}
+              className="max-w-sm w-64 border-[#123458]  border-l-6 border-b-6  rounded-br-[40px] rounded-t-[40px] shadow-2xl"
+            />
+            <motion.img
+              src={team2}
+              animate={{ x: [150, 200, 150] }}
+              transition={{ duration: 10, repeat: Infinity }}
+              className="max-w-sm h-32  w-50 border-[#123458]  border-l-6 border-b-6  rounded-br-[30px] rounded-t-[30px] shadow-2xl"
             />
           </div>
           <div className="flex-1">
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="text-5xl font-bold">
-              Latest Jobs update!
-            </div>
-            {/* <motion.h1
-              animate={{ y: -50, color: ['red'] }}
-              className="text-5xl font-bold">
-              Latest Jobs update!
-            </motion.h1> */}
+            <BlurText
+              text="Latest jobs for you!"
+              delay={160}
+              animateBy="words"
+              direction="bottom"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-4xl font-bold"
+            />
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
@@ -40,5 +46,4 @@ const Banner = () => {
     </div>
   )
 }
-
 export default Banner

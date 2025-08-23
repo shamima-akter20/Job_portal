@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import AuthContext from '../../Context/AuthContext/AuthContext'
 import { Link } from 'react-router-dom'
+import GoogleSignIn from '../Shared/GoogleSignIn'
 
 const Register = () => {
   const { createUser } = useContext(AuthContext)
@@ -93,6 +94,8 @@ const Register = () => {
               </Link>{' '}
             </p>
           </form>
+
+          <GoogleSignIn></GoogleSignIn>
         </div>
       </div>
     </div>
