@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import AuthContext from '../../Context/AuthContext/AuthContext'
+import Swal from 'sweetalert2'
 
 const GoogleSignIn = () => {
   const { googleSignIn } = useContext(AuthContext)
@@ -8,6 +9,11 @@ const GoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user)
+        Swal.fire({
+          title: 'Good job!',
+          text: 'Successfully SignIn!',
+          icon: 'success',
+        })
       })
       .catch((error) => {
         console.log(error.message)

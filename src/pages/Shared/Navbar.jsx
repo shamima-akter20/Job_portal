@@ -71,13 +71,13 @@ const Navbar = () => {
             <div>
               {user ? (
                 <div className="flex items-center">
-                  <img
+                  {/* <img
                     src={user.photoURL}
                     alt="User profile"
                     className="h-10 w-10 rounded-full mr-2"
                   />
 
-                  <h1 className="text-base-200 mr-2">{user?.displayName}</h1>
+                  <h1 className="text-base-200 mr-2">{user?.displayName}</h1> */}
                   <button
                     onClick={handleSignOut}
                     className="btn btn-xs md:btn-sm">

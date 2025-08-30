@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import AuthContext from '../../Context/AuthContext/AuthContext'
 import { Link } from 'react-router-dom'
 import GoogleSignIn from '../Shared/GoogleSignIn'
+import Swal from 'sweetalert2'
 
 const Register = () => {
   const { createUser } = useContext(AuthContext)
@@ -20,6 +21,11 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user)
+        Swal.fire({
+          title: 'Good job!',
+          text: 'Successfully Sign Up!',
+          icon: 'success',
+        })
       })
       .catch((error) => {
         console.log(error.message)

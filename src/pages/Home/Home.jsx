@@ -1,12 +1,13 @@
 import React from 'react'
 import Banner from './Banner'
-import Card from './Card'
+import HotJobs from './HotJobs'
+import Ebtn from './Ebtn'
 
 const Home = () => {
   return (
     <div className=" ">
       <Banner></Banner>
-      <Card></Card>
+      <HotJobs></HotJobs>
     </div>
   )
 }
