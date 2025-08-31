@@ -1,10 +1,14 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import AuthContext from '../../Context/AuthContext/AuthContext'
 import Swal from 'sweetalert2'
 
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext)
+  const location = useLocation()
+  const navigate = useNavigate()
+  console.log('in signin page', location)
+  const from = location.state || '/'
 
   const handleRegister = (e) => {
     e.preventDefault()
@@ -22,9 +26,10 @@ const SignIn = () => {
         console.log(result.user)
         Swal.fire({
           title: 'Good job!',
-          text: 'Successfully Sign In!',
+          text: 'Successfully Sign In !',
           icon: 'success',
         })
+        navigate(from)
       })
       .catch((error) => {
         console.log(error.message)

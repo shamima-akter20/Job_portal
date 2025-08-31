@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import HotJobCard from './HotJobCard'
+import JobCard from './JobCard'
 
 const HotJobs = () => {
   const [jobs, setJobs] = useState([])

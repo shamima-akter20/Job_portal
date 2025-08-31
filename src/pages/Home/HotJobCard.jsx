@@ -2,9 +2,11 @@ import React from 'react'
 import { FiCreditCard, FiMail, FiUser, FiUsers } from 'react-icons/fi'
 import { FaLocationDot } from 'react-icons/fa6'
 import { MdOutlineTimer } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const HotJobCard = ({ job }) => {
   const {
+    _id,
     title,
     location,
     jobType,
@@ -27,6 +29,7 @@ const HotJobCard = ({ job }) => {
         {/* <p className="text-xl font-semibold mb-2">Settings</p> */}
         <div className="flex ">
           <Card
+            _id={_id}
             image={company_logo}
             title={title}
             subtitle={category}
@@ -39,14 +42,6 @@ const HotJobCard = ({ job }) => {
             href="#"
             Icon={FiUser}
           />
-          {/* <Card title="Email" subtitle="Manage email" href="#" Icon={FiMail} />
-        <Card title="Team" subtitle="Manage team" href="#" Icon={FiUsers} />
-        <Card
-          title="Billing"
-          subtitle="Manage cards"
-          href="#"
-          Icon={FiCreditCard}
-        /> */}
         </div>
       </div>
     </div>
@@ -54,6 +49,7 @@ const HotJobCard = ({ job }) => {
 }
 
 const Card = ({
+  _id,
   image,
   title,
   jobType,
@@ -69,16 +65,13 @@ const Card = ({
   hr_email,
   location,
   Icon,
-  href,
+  href = '#',
 }) => {
   return (
-    <a
-      href={href}
-      className="w-full p-4 rounded border-[1px] border-slate-300 relative overflow-hidden group bg-white">
+    <div className="w-full p-4 rounded border-[1px] border-slate-300 relative overflow-hidden group bg-white">
       <div className="absolute inset-0 bg-gradient-to-r from-[#123458] to-gray-400 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300" />
 
       <Icon className="absolute z-10 -top-12 -right-12 text-9xl text-slate-100 group-hover:text-[#123458] group-hover:rotate-12 transition-transform duration-300" />
-      {/* <Icon className="mb-2 text-2xl text-violet-600 group-hover:text-white transition-colors relative z-10 duration-300" /> */}
 
       <div className="flex gap-2">
         <div className="">
@@ -125,14 +118,22 @@ const Card = ({
         </p>
         {/*--- job skill ----  */}
         <div className="flex flex-wrap my-2 gap-2 text-xs group-hover:text-black-300 relative z-10">
-          {requirements.map((skill) => (
-            <p className=" border rounded p-[3px] group-hover:text-slate-200 relative z-10">
+          {requirements.map((skill, index) => (
+            <p
+              key={index}
+              className=" border rounded p-[3px] group-hover:text-slate-200 relative z-10">
               {skill}
             </p>
           ))}
         </div>
+        {/* ---- btn ----- */}
+        <Link to={`/jobs/${_id}`}>
+          <button className="btn w-full mt-2 bg-[#123458] group-hover:bg-slate-300 text-slate-200 group-hover:text-black relative z-10">
+            Apply
+          </button>
+        </Link>
       </div>
-    </a>
+    </div>
   )
 }
 
