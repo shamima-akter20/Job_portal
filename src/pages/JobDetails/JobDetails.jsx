@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 
 const JobDetails = () => {
   const {
@@ -25,7 +25,9 @@ const JobDetails = () => {
       <h1>Job Details</h1>
       <p>{company}</p>
 
-      <button className="btn btn-wide">Apply Now</button>
+      <Link to={`/jobApply/${_id}`}>
+        <button className="btn btn-wide">Apply Now</button>
+      </Link>
     </div>
   )
 }

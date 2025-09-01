@@ -1,9 +1,13 @@
 import React, { useContext } from 'react'
 import AuthContext from '../../Context/AuthContext/AuthContext'
 import Swal from 'sweetalert2'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const GoogleSignIn = () => {
   const { googleSignIn } = useContext(AuthContext)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state || '/'
 
   const handleGoogleSignIn = () => {
     googleSignIn()
@@ -14,6 +18,7 @@ const GoogleSignIn = () => {
           text: 'Successfully SignIn!',
           icon: 'success',
         })
+        navigate(from)
       })
       .catch((error) => {
         console.log(error.message)

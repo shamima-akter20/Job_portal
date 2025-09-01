@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import AuthContext from '../../Context/AuthContext/AuthContext'
 import Swal from 'sweetalert2'
+import GoogleSignIn from '../Shared/GoogleSignIn'
 
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext)
@@ -92,11 +93,6 @@ const SignIn = () => {
                   type="submit">
                   Sign In
                 </button>
-                {/* <a
-                class="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
-                href="#">
-                Forgot Password?
-              </a> */}
               </div>
               <p className="mt-2 flex">
                 Don't have an account?
@@ -107,6 +103,7 @@ const SignIn = () => {
                 </Link>{' '}
               </p>
             </form>
+            <GoogleSignIn></GoogleSignIn>
           </div>
         </div>
       </div>

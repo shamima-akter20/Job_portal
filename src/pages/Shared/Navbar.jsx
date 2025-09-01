@@ -21,7 +21,10 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li className="font-bold">
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/myApplication">My Apllications</NavLink>
+      </li>
+      <li className="font-bold">
+        <NavLink to="/addJob">Add Job</NavLink>
       </li>
     </>
   )
@@ -85,9 +88,16 @@ const Navbar = () => {
                   </button>
                 </div>
               ) : (
-                <Link to="/register">
-                  <button className="btn btn-xs md:btn-sm">Sign Up</button>
-                </Link>
+                <div className="">
+                  <Link to="/signIn">
+                    <button className="btn btn-outline mr-2 text-[#F1EFEC] hover:text-black btn-ghost btn-xs md:btn-sm">
+                      Login
+                    </button>
+                  </Link>
+                  <Link to="/register">
+                    <button className="btn btn-xs md:btn-sm">Sign Up</button>
+                  </Link>
+                </div>
               )}
             </div>
 
